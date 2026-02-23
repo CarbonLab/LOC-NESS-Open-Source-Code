@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: nessie-dash-app
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn Nessie:server
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: PYTHONUNBUFFERED
+        value: 1
